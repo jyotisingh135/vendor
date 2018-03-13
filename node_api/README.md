@@ -1,0 +1,27 @@
+## Migrations:
+
+install migration:
+
+    npm install --save sequelize
+    npm install --save sequelize-cli
+
+init migration:
+
+    node_modules/.bin/sequelize init
+
+Create Table:
+
+    node_modules/.bin/sequelize model:generate --name <Table> --attributes <columns>
+
+
+    node_modules/.bin/sequelize model:generate --name tblAgent --attributes agentId:{type:Sequelize.INTEGER,primaryKey:true,autoIncrement:true},agentName:{type:Sequelize.STRING(40),allowNull:false},companyName:{type:Sequelize.STRING(40),allowNull:false},street:{type:Sequelize.STRING(30),allowNull:false},zipCode:{type:Sequelize.INTEGER,allowNull:false},classification:{type:Sequelize.CHAR,allowNull:false},warehouseId:{type:Sequelize.INTEGER,allowNull:true},coi:{type:Sequelize.STRING(20),allowNull:false},paymentTerms:{type:Sequelize.TEXT,allowNull:true},creditLimit:{type:Sequelize.DATE,allowNull:false},active:{type:Sequelize.BLOB,allowNull:false,defaultValue: false}
+
+    node_modules/.bin/sequelize model:generate --name tblAgent --attributes {agentId:{type:Sequelize.INTEGER,primaryKey:true,autoIncrement:true},agentName:{type:Sequelize.STRING,allowNull:false},companyName:{type:Sequelize.STRING,allowNull:false},street:{type:Sequelize.STRING,allowNull:false},zipCode:{type:Sequelize.INTEGER,allowNull:false},classification:{type:Sequelize.CHAR(1),allowNull:false},warehouseId:{type:Sequelize.INTEGER,allowNull:true},coi:{type:Sequelize.STRING,allowNull:false},paymentTerms:{type:Sequelize.TEXT,allowNull:true},creditLimit:{type:Sequelize.DATE,allowNull:false},active:{type:Sequelize.BLOB,allowNull:false,defaultValue:false}}
+
+Running Migrations:
+
+    node_modules/.bin/sequelize db:migrate
+
+Undoing Migrations:
+
+    node_modules/.bin/sequelize db:migrate:undo
